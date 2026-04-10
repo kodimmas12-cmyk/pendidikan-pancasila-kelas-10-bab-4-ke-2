@@ -1,0 +1,1148 @@
+<!doctype html>
+<html lang="id" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PPKn Kelas XI - SMA Taruna Nala</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        merah: '#C41E3A',
+        merahGelap: '#8B0000',
+        emas: '#D4A017',
+        emasTerang: '#FFD700',
+        gelap: '#1A0A0A',
+      }
+    }
+  }
+}
+</script>
+  <style>
+html, body { height: 100%; margin: 0; }
+body { font-family: 'Source Sans 3', sans-serif; }
+h1,h2,h3,h4,h5 { font-family: 'Playfair Display', serif; }
+.hero-bg {
+  background: linear-gradient(135deg, #1A0A0A 0%, #3D0C11 30%, #C41E3A 60%, #D4A017 100%);
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,215,0,0.03) 40px, rgba(255,215,0,0.03) 80px);
+}
+.hero-bg::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
+  background: linear-gradient(to top, #1A0A0A, transparent);
+}
+.card-materi {
+  background: linear-gradient(145deg, #1e1e1e, #2a1015);
+  border: 1px solid rgba(212,160,23,0.2);
+  transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.card-materi:hover {
+  border-color: rgba(212,160,23,0.6);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(196,30,58,0.2), 0 0 30px rgba(212,160,23,0.1);
+}
+.section-bg { background: #1A0A0A; }
+.materi-detail-bg {
+  background: linear-gradient(180deg, #1A0A0A 0%, #1e0a0e 50%, #1A0A0A 100%);
+}
+.nav-active { color: #FFD700 !important; border-bottom: 2px solid #FFD700; }
+.video-card {
+  background: linear-gradient(145deg, #1e1e1e, #251015);
+  border: 1px solid rgba(212,160,23,0.15);
+  transition: all 0.3s ease;
+}
+.video-card:hover { border-color: rgba(212,160,23,0.5); transform: translateY(-4px); }
+.btn-primary {
+  background: linear-gradient(135deg, #C41E3A, #8B0000);
+  transition: all 0.3s ease;
+}
+.btn-primary:hover { background: linear-gradient(135deg, #D4A017, #B8860B); }
+.fade-in { animation: fadeIn 0.6s ease forwards; opacity: 0; }
+@keyframes fadeIn { to { opacity: 1; } }
+.slide-up { animation: slideUp 0.6s ease forwards; opacity: 0; transform: translateY(30px); }
+@keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+.garuda-watermark {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  font-size: 200px; opacity: 0.03; pointer-events: none; z-index: 0;
+}
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #1A0A0A; }
+::-webkit-scrollbar-thumb { background: #C41E3A; border-radius: 4px; }
+.quiz-option { transition: all 0.3s ease; cursor: pointer; }
+.quiz-option:hover { border-color: #D4A017 !important; background: rgba(212,160,23,0.1) !important; }
+.quiz-option.correct { border-color: #22c55e !important; background: rgba(34,197,94,0.2) !important; }
+.quiz-option.wrong { border-color: #ef4444 !important; background: rgba(239,68,68,0.2) !important; }
+.memory-card {
+  aspect-ratio: 1;
+  background: linear-gradient(145deg, #1e1e1e, #2a1015);
+  border: 2px solid rgba(212,160,23,0.3);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+.memory-card:hover { border-color: rgba(212,160,23,0.6); transform: scale(0.95); }
+.memory-card.flipped { background: linear-gradient(145deg, #3D0C11, #2a1015); border-color: rgba(212,160,23,0.8); }
+.memory-card.matched { pointer-events: none; opacity: 0.5; border-color: #22c55e; }
+@keyframes flip { 0% { transform: rotateY(0deg); } 50% { transform: rotateY(90deg); } 100% { transform: rotateY(0deg); } }
+.flip-animate { animation: flip 0.6s ease; }
+</style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full bg-gelap text-white overflow-auto">
+  <div id="app" class="w-full" style="min-height:100%;"><!-- NAVIGATION -->
+   <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 bg-gelap/95 backdrop-blur border-b border-emas/20">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+     <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-gradient-to-br from-merah to-emas flex items-center justify-center font-bold text-sm" style="font-family:'Playfair Display',serif;">
+       🦅
+      </div>
+      <div>
+       <div id="nav-title" class="text-emas font-bold text-sm" style="font-family:'Playfair Display',serif;">
+        PPKn Kelas XI
+       </div>
+       <div id="nav-school" class="text-white/50 text-xs">
+        SMA Taruna Nala Jawa Timur
+       </div>
+      </div>
+     </div>
+     <div class="hidden md:flex items-center gap-6 text-sm"><button onclick="showPage('home')" class="nav-link text-white/70 hover:text-emas transition pb-1" data-nav="home">Beranda</button> <button onclick="showPage('materi')" class="nav-link text-white/70 hover:text-emas transition pb-1" data-nav="materi">Materi</button> <button onclick="showPage('video')" class="nav-link text-white/70 hover:text-emas transition pb-1" data-nav="video">Video</button> <button onclick="showPage('game')" class="nav-link text-white/70 hover:text-emas transition pb-1" data-nav="game">Permainan</button>
+     </div><button onclick="toggleMobileMenu()" class="md:hidden text-emas"><i data-lucide="menu" style="width:24px;height:24px;"></i></button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 flex flex-col gap-3 text-sm"><button onclick="showPage('home');toggleMobileMenu()" class="text-left text-white/70 hover:text-emas transition py-1">Beranda</button> <button onclick="showPage('materi');toggleMobileMenu()" class="text-left text-white/70 hover:text-emas transition py-1">Materi</button> <button onclick="showPage('video');toggleMobileMenu()" class="text-left text-white/70 hover:text-emas transition py-1">Video</button> <button onclick="showPage('game');toggleMobileMenu()" class="text-left text-white/70 hover:text-emas transition py-1">Permainan</button>
+    </div>
+   </nav><!-- ============ HOME PAGE ============ -->
+   <div id="page-home" class="page"><!-- HERO -->
+    <section class="hero-bg pt-28 pb-20 px-4 relative" style="min-height:500px;">
+     <div class="garuda-watermark">
+      🦅
+     </div>
+     <div class="max-w-5xl mx-auto text-center relative z-10">
+      <div class="slide-up" style="animation-delay:0.1s">
+       <div class="inline-block px-4 py-1 bg-emas/10 border border-emas/30 rounded-full text-emas text-xs mb-6 tracking-widest uppercase">
+        Pendidikan Pancasila dan Kewarganegaraan
+       </div>
+      </div>
+      <h1 id="hero-title" class="slide-up text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-6" style="animation-delay:0.2s;text-shadow:0 4px 30px rgba(196,30,58,0.4);">PPKn <span class="text-emas">Kelas XI</span></h1>
+      <p id="hero-welcome" class="slide-up text-white/70 text-lg md:text-xl max-w-2xl mx-auto mb-4" style="animation-delay:0.3s;">Selamat datang di portal pembelajaran PPKn. Mari bersama mempelajari dan mengamalkan nilai-nilai Pancasila untuk Indonesia yang lebih baik.</p>
+      <div class="slide-up flex flex-col items-center gap-2 mb-8" style="animation-delay:0.35s;">
+       <p class="text-emas/80 text-sm"><i data-lucide="user" style="width:14px;height:14px;display:inline;vertical-align:middle;margin-right:4px;"></i> Pengajar: <span id="hero-teacher" class="font-semibold text-emas">Dimas Aldi Fahrigi</span></p>
+       <p class="text-white/50 text-xs"><i data-lucide="map-pin" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px;"></i> <span id="hero-school">SMA Taruna Nala Jawa Timur</span></p>
+      </div>
+      <div class="slide-up flex flex-wrap justify-center gap-4" style="animation-delay:0.4s;"><button onclick="showPage('materi')" class="btn-primary px-8 py-3 rounded-lg font-bold text-white flex items-center gap-2"><i data-lucide="book-open" style="width:18px;height:18px;"></i> Mulai Belajar</button> <button onclick="showPage('game')" class="px-8 py-3 rounded-lg font-bold text-emas border border-emas/40 hover:bg-emas/10 transition flex items-center gap-2"><i data-lucide="gamepad-2" style="width:18px;height:18px;"></i> Main Permainan</button>
+      </div>
+     </div>
+    </section><!-- RINGKASAN MATERI -->
+    <section class="section-bg py-16 px-4 relative">
+     <div class="garuda-watermark">
+      ⭐
+     </div>
+     <div class="max-w-6xl mx-auto relative z-10">
+      <div class="text-center mb-12">
+       <h2 class="text-3xl md:text-4xl font-black text-emas mb-3">Daftar Materi Pembelajaran</h2>
+       <div class="w-24 h-1 bg-gradient-to-r from-merah to-emas mx-auto rounded mb-4"></div>
+       <p class="text-white/60 max-w-xl mx-auto">Empat bab utama yang akan kita pelajari bersama dalam semester ini</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+       <div class="card-materi rounded-xl p-6 cursor-pointer" onclick="showPage('materi');setTimeout(()=>scrollToMateri('bab1'),300)">
+        <div class="flex items-start gap-4">
+         <div class="w-12 h-12 rounded-lg bg-merah/20 flex items-center justify-center text-merah shrink-0">
+          <i data-lucide="shield-alert" style="width:24px;height:24px;"></i>
+         </div>
+         <div>
+          <div class="text-emas/60 text-xs tracking-wider uppercase mb-1">
+           Bab 1
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Ancaman, Tantangan, Hambatan &amp; Gangguan</h3>
+          <p class="text-white/50 text-sm">Terhadap Ideologi Pancasila dan Keutuhan NKRI</p>
+         </div>
+        </div>
+       </div>
+       <div class="card-materi rounded-xl p-6 cursor-pointer" onclick="showPage('materi');setTimeout(()=>scrollToMateri('bab2'),300)">
+        <div class="flex items-start gap-4">
+         <div class="w-12 h-12 rounded-lg bg-emas/20 flex items-center justify-center text-emas shrink-0">
+          <i data-lucide="users" style="width:24px;height:24px;"></i>
+         </div>
+         <div>
+          <div class="text-emas/60 text-xs tracking-wider uppercase mb-1">
+           Bab 2
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Peran Serta Warga Negara</h3>
+          <p class="text-white/50 text-sm">Menjaga Keutuhan Ideologi Pancasila dan NKRI</p>
+         </div>
+        </div>
+       </div>
+       <div class="card-materi rounded-xl p-6 cursor-pointer" onclick="showPage('materi');setTimeout(()=>scrollToMateri('bab3'),300)">
+        <div class="flex items-start gap-4">
+         <div class="w-12 h-12 rounded-lg bg-merah/20 flex items-center justify-center text-merah shrink-0">
+          <i data-lucide="landmark" style="width:24px;height:24px;"></i>
+         </div>
+         <div>
+          <div class="text-emas/60 text-xs tracking-wider uppercase mb-1">
+           Bab 3
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Bentuk Negara, Pemerintahan &amp; Sistem</h3>
+          <p class="text-white/50 text-sm">Pemerintahan Indonesia</p>
+         </div>
+        </div>
+       </div>
+       <div class="card-materi rounded-xl p-6 cursor-pointer" onclick="showPage('materi');setTimeout(()=>scrollToMateri('bab4'),300)">
+        <div class="flex items-start gap-4">
+         <div class="w-12 h-12 rounded-lg bg-emas/20 flex items-center justify-center text-emas shrink-0">
+          <i data-lucide="heart-handshake" style="width:24px;height:24px;"></i>
+         </div>
+         <div>
+          <div class="text-emas/60 text-xs tracking-wider uppercase mb-1">
+           Bab 4
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Sikap Warga Negara</h3>
+          <p class="text-white/50 text-sm">Terhadap Pelaksanaan Sistem Pemerintahan RI</p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+   </div><!-- ============ MATERI PAGE ============ -->
+   <div id="page-materi" class="page hidden">
+    <div class="materi-detail-bg pt-24 pb-16 px-4" style="min-height:100%;">
+     <div class="max-w-4xl mx-auto">
+      <div class="mb-8"><button onclick="showPage('home')" class="text-emas/70 hover:text-emas text-sm flex items-center gap-1 mb-4 transition"><i data-lucide="arrow-left" style="width:16px;height:16px;"></i> Kembali ke Beranda</button>
+       <h1 class="text-3xl md:text-4xl font-black text-emas mb-2">Materi Pembelajaran PPKn</h1>
+       <div class="w-20 h-1 bg-gradient-to-r from-merah to-emas rounded"></div>
+      </div><!-- BAB 1 -->
+      <div id="bab1" class="mb-12 scroll-mt-28">
+       <div class="card-materi rounded-xl overflow-hidden">
+        <div class="bg-gradient-to-r from-merah/30 to-transparent p-6 border-b border-emas/10">
+         <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-merah/30 flex items-center justify-center">
+           <i data-lucide="shield-alert" style="width:20px;height:20px;color:#C41E3A;"></i>
+          </div>
+          <div>
+           <div class="text-emas/60 text-xs tracking-wider uppercase">
+            Bab 1
+           </div>
+           <h2 class="text-xl font-bold text-white">Ancaman, Tantangan, Hambatan &amp; Gangguan terhadap Ideologi Pancasila dan Keutuhan NKRI</h2>
+          </div>
+         </div>
+        </div>
+        <div class="p-6 space-y-6 text-white/80 leading-relaxed text-sm">
+         <div>
+          <h3 class="text-lg font-bold text-emas mb-3">A. Ancaman, Tantangan, Hambatan, dan Gangguan terhadap Ideologi Pancasila</h3>
+          <p class="mb-3">Ideologi Pancasila sebagai dasar negara dan pandangan hidup bangsa Indonesia senantiasa menghadapi berbagai bentuk ancaman, tantangan, hambatan, dan gangguan (ATHG) yang dapat melemahkan eksistensinya. Pemahaman mengenai ATHG ini sangat penting agar kita dapat mengantisipasi dan mengatasinya secara tepat.</p>
+          <div class="bg-white/5 rounded-lg p-4 mb-4 border-l-4 border-merah">
+           <h4 class="font-bold text-white mb-2">1. Pengertian ATHG</h4>
+           <ul class="space-y-2 ml-4">
+            <li><strong class="text-emas">Ancaman</strong> — Usaha yang bersifat mengubah atau merombak kebijaksanaan yang dilakukan secara konsepsional melalui tindak kriminal dan politis. Ancaman merupakan bentuk ATHG yang paling berbahaya karena dilakukan secara terencana dan sistematis. Contoh: pemberontakan bersenjata, gerakan separatisme, terorisme, dan upaya mengganti Pancasila dengan ideologi lain.</li>
+            <li><strong class="text-emas">Tantangan</strong> — Usaha yang bersifat menggugah kemampuan. Tantangan merupakan hal yang harus dihadapi dan memerlukan respons aktif. Contoh: globalisasi yang membawa nilai-nilai asing, perkembangan teknologi informasi yang dapat membawa dampak negatif, persaingan ekonomi global.</li>
+            <li><strong class="text-emas">Hambatan</strong> — Usaha yang berasal dari diri sendiri yang bersifat atau bertujuan melemahkan atau menghalangi secara tidak konsepsional. Hambatan bersifat internal dan seringkali tidak disadari. Contoh: rendahnya pemahaman masyarakat tentang Pancasila, sikap apatis terhadap kehidupan berbangsa, kemiskinan dan kesenjangan sosial.</li>
+            <li><strong class="text-emas">Gangguan</strong> — Usaha yang berasal dari luar yang bersifat atau bertujuan melemahkan atau menghalangi secara tidak konsepsional. Gangguan bersifat eksternal namun tidak terencana secara sistematis. Contoh: pengaruh budaya asing yang negatif, hoaks dan disinformasi, propaganda ideologi radikal melalui media sosial.</li>
+           </ul>
+          </div>
+          <div class="bg-white/5 rounded-lg p-4 mb-4 border-l-4 border-emas">
+           <h4 class="font-bold text-white mb-2">2. Bentuk-Bentuk Ancaman terhadap Ideologi Pancasila</h4>
+           <p class="mb-2"><strong class="text-emas">a. Ancaman dari Dalam (Internal):</strong></p>
+           <ul class="list-disc ml-6 space-y-1 mb-3">
+            <li>Gerakan separatisme dan pemberontakan bersenjata yang ingin memisahkan diri dari NKRI</li>
+            <li>Upaya mengganti Pancasila dengan ideologi lain seperti komunisme, liberalisme ekstrem, atau teokrasi</li>
+            <li>Radikalisme dan ekstremisme yang mengancam persatuan bangsa</li>
+            <li>Korupsi, kolusi, dan nepotisme (KKN) yang merusak sendi-sendi kehidupan bernegara</li>
+            <li>Konflik horizontal berbasis SARA (Suku, Agama, Ras, dan Antargolongan)</li>
+            <li>Lunturnya semangat nasionalisme dan patriotisme di kalangan generasi muda</li>
+           </ul>
+           <p class="mb-2"><strong class="text-emas">b. Ancaman dari Luar (Eksternal):</strong></p>
+           <ul class="list-disc ml-6 space-y-1">
+            <li>Infiltrasi ideologi asing yang bertentangan dengan nilai-nilai Pancasila</li>
+            <li>Intervensi asing dalam urusan dalam negeri Indonesia</li>
+            <li>Perang informasi dan propaganda melalui media internasional</li>
+            <li>Tekanan ekonomi dan politik dari negara-negara besar</li>
+            <li>Ancaman militer dari negara lain terhadap kedaulatan wilayah Indonesia</li>
+            <li>Pengaruh globalisasi yang tidak terkendali terhadap budaya dan nilai-nilai bangsa</li>
+           </ul>
+          </div>
+         </div>
+         <div>
+          <h3 class="text-lg font-bold text-emas mb-3">B. Ancaman, Tantangan, Hambatan, dan Gangguan terhadap NKRI</h3>
+          <p class="mb-3">Negara Kesatuan Republik Indonesia (NKRI) sebagai bentuk negara yang dipilih oleh para pendiri bangsa juga menghadapi berbagai ATHG yang dapat mengancam keutuhannya. Keutuhan NKRI meliputi keutuhan wilayah, keutuhan bangsa, dan keutuhan pemerintahan.</p>
+          <div class="bg-white/5 rounded-lg p-4 mb-4 border-l-4 border-merah">
+           <h4 class="font-bold text-white mb-2">1. Ancaman di Bidang Militer (Pertahanan)</h4>
+           <ul class="list-disc ml-6 space-y-1">
+            <li><strong>Agresi militer:</strong> Serangan bersenjata oleh negara lain terhadap wilayah NKRI</li>
+            <li><strong>Pelanggaran wilayah:</strong> Masuknya kapal atau pesawat asing tanpa izin ke wilayah Indonesia</li>
+            <li><strong>Spionase:</strong> Kegiatan mata-mata yang dilakukan negara lain untuk mendapatkan rahasia pertahanan</li>
+            <li><strong>Sabotase:</strong> Perusakan instalasi penting dan objek vital nasional</li>
+            <li><strong>Aksi teror bersenjata:</strong> Serangan teror yang menggunakan senjata dan bahan peledak</li>
+            <li><strong>Pemberontakan bersenjata:</strong> Gerakan bersenjata yang bertujuan memisahkan diri dari NKRI</li>
+           </ul>
+          </div>
+          <div class="bg-white/5 rounded-lg p-4 mb-4 border-l-4 border-emas">
+           <h4 class="font-bold text-white mb-2">2. Ancaman di Bidang Non-Militer</h4>
+           <p class="mb-2"><strong class="text-emas">a. Bidang Ideologi:</strong> Masuknya paham-paham yang bertentangan dengan Pancasila seperti liberalisme ekstrem, komunisme, dan radikalisme agama yang mengancam persatuan dan kesatuan bangsa.</p>
+           <p class="mb-2"><strong class="text-emas">b. Bidang Politik:</strong> Infiltrasi politik asing, tekanan diplomatik, propaganda politik yang memecah belah bangsa, money politics, dan politik identitas yang memperlemah persatuan.</p>
+           <p class="mb-2"><strong class="text-emas">c. Bidang Ekonomi:</strong> Ketergantungan ekonomi pada negara lain, eksploitasi sumber daya alam oleh pihak asing, kesenjangan ekonomi, krisis finansial, dan perdagangan ilegal.</p>
+           <p class="mb-2"><strong class="text-emas">d. Bidang Sosial-Budaya:</strong> Masuknya budaya asing yang merusak jati diri bangsa, dekadensi moral, lunturnya kearifan lokal, penyalahgunaan narkoba, dan pornografi.</p>
+           <p class="mb-2"><strong class="text-emas">e. Bidang Teknologi dan Informasi:</strong> Perang siber (cyber warfare), penyebaran hoaks dan disinformasi, pencurian data strategis, dan peretasan infrastruktur digital nasional.</p>
+           <p><strong class="text-emas">f. Bidang Keselamatan Umum:</strong> Bencana alam, wabah penyakit, kerusakan lingkungan, pencemaran, dan krisis pangan dan air.</p>
+          </div>
+          <div class="bg-gradient-to-r from-merah/10 to-emas/10 rounded-lg p-4 border border-emas/20">
+           <h4 class="font-bold text-emas mb-2">📌 Strategi Mengatasi ATHG terhadap NKRI</h4>
+           <ol class="list-decimal ml-6 space-y-1">
+            <li>Memperkuat sistem pertahanan dan keamanan negara (Sishankamrata)</li>
+            <li>Meningkatkan kesadaran bela negara di seluruh lapisan masyarakat</li>
+            <li>Memperkuat ketahanan nasional di berbagai bidang</li>
+            <li>Meningkatkan pendidikan ideologi Pancasila secara komprehensif</li>
+            <li>Membangun kekuatan ekonomi nasional yang mandiri dan berdaulat</li>
+            <li>Menjaga dan melestarikan kearifan budaya lokal Nusantara</li>
+           </ol>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div><!-- BAB 2 -->
+      <div id="bab2" class="mb-12 scroll-mt-28">
+       <div class="card-materi rounded-xl overflow-hidden">
+        <div class="bg-gradient-to-r from-emas/20 to-transparent p-6 border-b border-emas/10">
+         <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-emas/30 flex items-center justify-center">
+           <i data-lucide="users" style="width:20px;height:20px;color:#D4A017;"></i>
+          </div>
+          <div>
+           <div class="text-emas/60 text-xs tracking-wider uppercase">
+            Bab 2
+           </div>
+           <h2 class="text-xl font-bold text-white">Peran Serta Warga Negara dalam Menjaga Keutuhan Ideologi Pancasila dan NKRI</h2>
+          </div>
+         </div>
+        </div>
+        <div class="p-6 space-y-6 text-white/80 leading-relaxed text-sm">
+         <p>Setiap warga negara Indonesia memiliki hak dan kewajiban untuk berperan serta dalam menjaga keutuhan ideologi Pancasila dan NKRI. Peran serta ini dapat diwujudkan dalam berbagai lingkup kehidupan, mulai dari lingkup terkecil yaitu keluarga hingga lingkup terbesar yaitu kehidupan berbangsa dan bernegara.</p>
+         <div class="bg-white/5 rounded-lg p-4 mb-4 border-l-4 border-merah">
+          <h4 class="font-bold text-white mb-2">1. Menjaga Keutuhan di Lingkungan Keluarga</h4>
+          <p class="mb-2">Keluarga merupakan unit terkecil dalam masyarakat dan menjadi tempat pertama seseorang belajar tentang nilai-nilai kehidupan. Peran keluarga sangat fundamental dalam menanamkan nilai-nilai Pancasila.</p>
+          <ul class="list-disc ml-6 space-y-1">
+           <li><strong>Menanamkan nilai-nilai Pancasila</strong> sejak dini kepada anak-anak melalui keteladanan dan pembiasaan</li>
+           <li><strong>Membangun komunikasi</strong> yang terbuka dan demokratis antaranggota keluarga</li>
+           <li><strong>Mengajarkan toleransi</strong> dan menghargai perbedaan pendapat dalam keluarga</li>
+           <li><strong>Menumbuhkan rasa cinta tanah air</strong> melalui cerita sejarah perjuangan bangsa</li>
+           <li><strong>Membiasakan musyawarah</strong> dalam mengambil keputusan keluarga</li>
+           <li><strong>Mengajarkan gotong royong</strong> melalui pembagian tugas rumah tangga</li>
+           <li><strong>Menanamkan nilai religius</strong> sesuai agama dan kepercayaan masing-masing</li>
+           <li><strong>Mendidik anak</strong> untuk menghormati orang tua dan sesama anggota keluarga</li>
+          </ul>
+         </div>
+         <div class="bg-white/5 rounded-lg p-4 mb-4 border-l-4 border-emas">
+          <h4 class="font-bold text-white mb-2">2. Menjaga Keutuhan di Lingkungan Sekolah</h4>
+          <p class="mb-2">Sekolah merupakan lembaga pendidikan formal yang berperan penting dalam membentuk karakter dan wawasan kebangsaan peserta didik.</p>
+          <ul class="list-disc ml-6 space-y-1">
+           <li><strong>Mengikuti upacara bendera</strong> dengan khidmat dan penuh penghayatan</li>
+           <li><strong>Mempelajari dan mengamalkan</strong> Pancasila dan UUD 1945 dalam kehidupan sehari-hari</li>
+           <li><strong>Aktif dalam kegiatan OSIS</strong> dan organisasi sekolah sebagai wahana berdemokrasi</li>
+           <li><strong>Menghargai keberagaman</strong> suku, agama, dan budaya teman-teman di sekolah</li>
+           <li><strong>Tidak melakukan perundungan</strong> (bullying) dan diskriminasi</li>
+           <li><strong>Berpartisipasi dalam kegiatan</strong> Pramuka, PMR, dan kegiatan kebangsaan lainnya</li>
+           <li><strong>Menjaga ketertiban</strong> dan mematuhi tata tertib sekolah</li>
+           <li><strong>Belajar dengan sungguh-sungguh</strong> sebagai wujud bela negara di bidang pendidikan</li>
+           <li><strong>Mengembangkan sikap kritis</strong> yang konstruktif dalam diskusi pembelajaran</li>
+          </ul>
+         </div>
+         <div class="bg-white/5 rounded-lg p-4 mb-4 border-l-4 border-merah">
+          <h4 class="font-bold text-white mb-2">3. Menjaga Keutuhan di Lingkungan Masyarakat</h4>
+          <p class="mb-2">Masyarakat merupakan lingkungan sosial yang lebih luas dimana warga negara berinteraksi dan berkontribusi untuk kepentingan bersama.</p>
+          <ul class="list-disc ml-6 space-y-1">
+           <li><strong>Berpartisipasi dalam kegiatan gotong royong</strong> di lingkungan RT/RW</li>
+           <li><strong>Menghormati tetangga</strong> yang berbeda suku, agama, dan budaya</li>
+           <li><strong>Aktif dalam musyawarah</strong> desa/kelurahan untuk kepentingan bersama</li>
+           <li><strong>Menjaga keamanan</strong> dan ketertiban lingkungan melalui siskamling</li>
+           <li><strong>Membantu sesama</strong> yang membutuhkan tanpa membedakan latar belakang</li>
+           <li><strong>Melestarikan budaya daerah</strong> dan kearifan lokal</li>
+           <li><strong>Tidak menyebarkan</strong> ujaran kebencian, hoaks, dan provokasi SARA</li>
+           <li><strong>Berpartisipasi dalam kegiatan sosial</strong> kemasyarakatan</li>
+           <li><strong>Menjaga kelestarian lingkungan</strong> hidup di sekitar tempat tinggal</li>
+          </ul>
+         </div>
+         <div class="bg-white/5 rounded-lg p-4 mb-4 border-l-4 border-emas">
+          <h4 class="font-bold text-white mb-2">4. Menjaga Keutuhan dalam Kehidupan Berbangsa dan Bernegara</h4>
+          <p class="mb-2">Dalam lingkup kehidupan berbangsa dan bernegara, setiap warga negara memiliki tanggung jawab besar untuk menjaga keutuhan NKRI.</p>
+          <ul class="list-disc ml-6 space-y-1">
+           <li><strong>Menggunakan hak pilih</strong> dalam pemilihan umum secara bertanggung jawab dan rasional</li>
+           <li><strong>Membayar pajak</strong> tepat waktu sebagai kontribusi untuk pembangunan nasional</li>
+           <li><strong>Siap membela negara</strong> sesuai dengan kemampuan dan keahlian masing-masing</li>
+           <li><strong>Mematuhi hukum</strong> dan peraturan perundang-undangan yang berlaku</li>
+           <li><strong>Menjunjung tinggi</strong> nama baik bangsa Indonesia di kancah internasional</li>
+           <li><strong>Berpartisipasi aktif</strong> dalam pembangunan nasional di berbagai bidang</li>
+           <li><strong>Menggunakan produk dalam negeri</strong> untuk memperkuat ekonomi nasional</li>
+           <li><strong>Menjaga persatuan dan kesatuan</strong> dengan mengutamakan kepentingan bangsa di atas kepentingan pribadi/golongan</li>
+           <li><strong>Mengawal kebijakan pemerintah</strong> secara kritis dan konstruktif melalui saluran yang sah</li>
+           <li><strong>Berperan aktif dalam bela negara</strong> baik secara fisik maupun non-fisik</li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </div><!-- BAB 3 -->
+      <div id="bab3" class="mb-12 scroll-mt-28">
+       <div class="card-materi rounded-xl overflow-hidden">
+        <div class="bg-gradient-to-r from-merah/30 to-transparent p-6 border-b border-emas/10">
+         <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-merah/30 flex items-center justify-center">
+           <i data-lucide="landmark" style="width:20px;height:20px;color:#C41E3A;"></i>
+          </div>
+          <div>
+           <div class="text-emas/60 text-xs tracking-wider uppercase">
+            Bab 3
+           </div>
+           <h2 class="text-xl font-bold text-white">Bentuk Negara, Bentuk Pemerintahan, dan Sistem Pemerintahan Indonesia</h2>
+          </div>
+         </div>
+        </div>
+        <div class="p-6 space-y-6 text-white/80 leading-relaxed text-sm">
+         <div class="bg-white/5 rounded-lg p-4 mb-4 border-l-4 border-merah">
+          <h4 class="font-bold text-white mb-2">1. Bentuk Negara</h4>
+          <p class="mb-3">Bentuk negara adalah susunan atau organisasi negara secara keseluruhan yang menjelaskan hubungan antara pemerintah pusat dengan pemerintah daerah.</p>
+          <p class="mb-2"><strong class="text-emas">a. Negara Kesatuan (Unitaris)</strong></p>
+          <p class="mb-2">Negara yang berdaulat dengan satu pemerintahan pusat yang mengatur seluruh wilayah. Indonesia memilih bentuk negara kesatuan sebagaimana tercantum dalam <strong>Pasal 1 Ayat (1) UUD 1945</strong>: "Negara Indonesia ialah Negara Kesatuan, yang berbentuk Republik."</p>
+          <p class="mb-2">Ciri-ciri negara kesatuan:</p>
+          <ul class="list-disc ml-6 space-y-1 mb-3">
+           <li>Kedaulatan negara mencakup kedaulatan ke dalam dan ke luar yang ditangani pemerintah pusat</li>
+           <li>Negara hanya memiliki satu undang-undang dasar, satu kepala negara, satu dewan perwakilan, dan satu kabinet</li>
+           <li>Hanya ada satu kebijakan mengenai masalah sosial, ekonomi, politik, budaya, pertahanan, dan keamanan</li>
+          </ul>
+          <p class="mb-2">Indonesia menerapkan <strong>negara kesatuan dengan sistem desentralisasi</strong>, dimana pemerintah pusat memberikan sebagian kewenangan kepada pemerintah daerah melalui <strong>otonomi daerah</strong> berdasarkan UU No. 23 Tahun 2014 tentang Pemerintahan Daerah.</p>
+          <p class="mb-2 mt-4"><strong class="text-emas">b. Negara Serikat (Federasi)</strong></p>
+          <p class="mb-2">Negara yang terdiri dari beberapa negara bagian yang masing-masing memiliki kedaulatan untuk mengatur urusan dalam negerinya. Contoh: Amerika Serikat, Jerman, Australia, dan Malaysia.</p>
+          <p class="mb-2 mt-4"><strong class="text-emas">c. Perbedaan Kesatuan dan Federasi:</strong></p>
+          <div class="overflow-x-auto">
+           <table class="w-full text-xs border border-emas/20 rounded">
+            <tbody>
+             <tr class="bg-emas/10">
+              <th class="p-2 text-left border-b border-emas/20 text-emas">Aspek</th>
+              <th class="p-2 text-left border-b border-emas/20 text-emas">Kesatuan</th>
+              <th class="p-2 text-left border-b border-emas/20 text-emas">Federasi</th>
+             </tr>
+             <tr>
+              <td class="p-2 border-b border-emas/10">Konstitusi</td>
+              <td class="p-2 border-b border-emas/10">Satu UUD</td>
+              <td class="p-2 border-b border-emas/10">UUD Federal + UUD negara bagian</td>
+             </tr>
+             <tr>
+              <td class="p-2 border-b border-emas/10">Kedaulatan</td>
+              <td class="p-2 border-b border-emas/10">Di pemerintah pusat</td>
+              <td class="p-2 border-b border-emas/10">Terbagi antara pusat dan negara bagian</td>
+             </tr>
+             <tr>
+              <td class="p-2 border-b border-emas/10">Parlemen</td>
+              <td class="p-2 border-b border-emas/10">Satu lembaga legislatif</td>
+              <td class="p-2 border-b border-emas/10">Dua kamar (bikameral)</td>
+             </tr>
+             <tr>
+              <td class="p-2">Kewarganegaraan</td>
+              <td class="p-2">Satu kewarganegaraan</td>
+              <td class="p-2">Bisa ganda</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+         </div>
+         <div class="bg-white/5 rounded-lg p-4 mb-4 border-l-4 border-emas">
+          <h4 class="font-bold text-white mb-2">2. Bentuk Pemerintahan</h4>
+          <p class="mb-3">Bentuk pemerintahan menjelaskan bagaimana cara pengisian jabatan kepala negara, yaitu melalui pemilihan (republik) atau pewarisan (monarki).</p>
+          <p class="mb-2"><strong class="text-emas">a. Republik</strong></p>
+          <p class="mb-2">Indonesia berbentuk pemerintahan republik, dimana kepala negara dipilih oleh rakyat melalui pemilihan umum untuk masa jabatan tertentu. Dasar hukum: <strong>Pasal 1 Ayat (1) UUD 1945</strong>.</p>
+          <p class="mb-2">Ciri-ciri pemerintahan republik:</p>
+          <ul class="list-disc ml-6 space-y-1 mb-3">
+           <li>Kepala negara dipilih melalui pemilihan umum (Pemilu)</li>
+           <li>Masa jabatan kepala negara dibatasi oleh konstitusi (di Indonesia: 5 tahun, maksimal 2 periode)</li>
+           <li>Kekuasaan berasal dari rakyat dan dijalankan untuk kepentingan rakyat</li>
+           <li>Terdapat lembaga perwakilan rakyat sebagai saluran aspirasi rakyat</li>
+          </ul>
+          <p class="mb-2"><strong class="text-emas">b. Monarki</strong></p>
+          <p class="mb-2">Bentuk pemerintahan dimana kepala negara adalah raja/ratu yang mendapatkan kekuasaan secara turun-temurun. Terbagi menjadi:</p>
+          <ul class="list-disc ml-6 space-y-1">
+           <li><strong>Monarki Absolut:</strong> Raja memiliki kekuasaan tidak terbatas (contoh: Arab Saudi)</li>
+           <li><strong>Monarki Konstitusional:</strong> Kekuasaan raja dibatasi oleh konstitusi (contoh: Inggris, Jepang, Thailand)</li>
+           <li><strong>Monarki Parlementer:</strong> Raja sebagai simbol negara, pemerintahan dijalankan oleh perdana menteri (contoh: Malaysia, Belanda)</li>
+          </ul>
+         </div>
+         <div class="bg-white/5 rounded-lg p-4 mb-4 border-l-4 border-merah">
+          <h4 class="font-bold text-white mb-2">3. Sistem Pemerintahan</h4>
+          <p class="mb-3">Sistem pemerintahan adalah mekanisme kerja dan hubungan fungsi antarlembaga negara, khususnya hubungan antara eksekutif dan legislatif.</p>
+          <p class="mb-2"><strong class="text-emas">a. Sistem Pemerintahan Presidensial</strong></p>
+          <p class="mb-2">Indonesia menganut sistem pemerintahan presidensial dimana presiden berkedudukan sebagai kepala negara sekaligus kepala pemerintahan. Dasar hukum: <strong>Pasal 4 Ayat (1) UUD 1945</strong>: "Presiden Republik Indonesia memegang kekuasaan pemerintahan menurut Undang-Undang Dasar."</p>
+          <p class="mb-2">Ciri-ciri sistem presidensial Indonesia:</p>
+          <ul class="list-disc ml-6 space-y-1 mb-3">
+           <li>Presiden sebagai kepala negara dan kepala pemerintahan</li>
+           <li>Presiden dipilih langsung oleh rakyat melalui Pemilu</li>
+           <li>Kabinet (menteri) diangkat dan bertanggung jawab kepada presiden</li>
+           <li>Presiden tidak dapat membubarkan parlemen (DPR) dan sebaliknya</li>
+           <li>Masa jabatan presiden pasti (fixed term) yaitu 5 tahun</li>
+           <li>Presiden bertanggung jawab kepada rakyat melalui MPR</li>
+          </ul>
+          <p class="mb-2"><strong class="text-emas">b. Sistem Pemerintahan Parlementer</strong></p>
+          <p class="mb-2">Sistem dimana kepala pemerintahan (perdana menteri) bertanggung jawab kepada parlemen. Contoh: Inggris, India, Jepang.</p>
+          <ul class="list-disc ml-6 space-y-1 mb-3">
+           <li>Kepala negara dan kepala pemerintahan terpisah</li>
+           <li>Kabinet dibentuk dan bertanggung jawab kepada parlemen</li>
+           <li>Parlemen dapat menjatuhkan kabinet melalui mosi tidak percaya</li>
+           <li>Kepala negara dapat membubarkan parlemen</li>
+          </ul>
+          <p class="mb-2"><strong class="text-emas">c. Lembaga-Lembaga Negara dalam Sistem Pemerintahan Indonesia:</strong></p>
+          <ul class="list-disc ml-6 space-y-1">
+           <li><strong>MPR (Majelis Permusyawaratan Rakyat):</strong> Mengubah dan menetapkan UUD, melantik presiden dan wakil presiden</li>
+           <li><strong>DPR (Dewan Perwakilan Rakyat):</strong> Fungsi legislasi, anggaran, dan pengawasan</li>
+           <li><strong>DPD (Dewan Perwakilan Daerah):</strong> Mewakili kepentingan daerah di tingkat nasional</li>
+           <li><strong>Presiden:</strong> Kepala negara dan kepala pemerintahan</li>
+           <li><strong>MA (Mahkamah Agung):</strong> Lembaga peradilan tertinggi</li>
+           <li><strong>MK (Mahkamah Konstitusi):</strong> Pengawal konstitusi</li>
+           <li><strong>BPK (Badan Pemeriksa Keuangan):</strong> Memeriksa pengelolaan keuangan negara</li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </div><!-- BAB 4 -->
+      <div id="bab4" class="mb-12 scroll-mt-28">
+       <div class="card-materi rounded-xl overflow-hidden">
+        <div class="bg-gradient-to-r from-emas/20 to-transparent p-6 border-b border-emas/10">
+         <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-emas/30 flex items-center justify-center">
+           <i data-lucide="heart-handshake" style="width:20px;height:20px;color:#D4A017;"></i>
+          </div>
+          <div>
+           <div class="text-emas/60 text-xs tracking-wider uppercase">
+            Bab 4
+           </div>
+           <h2 class="text-xl font-bold text-white">Sikap Warga Negara terhadap Pelaksanaan Sistem Pemerintahan Republik Indonesia</h2>
+          </div>
+         </div>
+        </div>
+        <div class="p-6 space-y-6 text-white/80 leading-relaxed text-sm">
+         <p>Setiap warga negara perlu memiliki sikap positif terhadap pelaksanaan sistem pemerintahan Republik Indonesia. Sikap ini diwujudkan melalui partisipasi aktif, kesadaran hukum, dan tanggung jawab sebagai warga negara yang baik.</p>
+         <div class="bg-white/5 rounded-lg p-4 mb-4 border-l-4 border-merah">
+          <h4 class="font-bold text-white mb-2">1. Sikap Positif terhadap Sistem Pemerintahan</h4>
+          <ul class="list-disc ml-6 space-y-2">
+           <li><strong>Mendukung dan mematuhi kebijakan pemerintah</strong> yang sesuai dengan konstitusi dan peraturan perundang-undangan yang berlaku</li>
+           <li><strong>Berpartisipasi aktif dalam Pemilu dan Pilkada</strong> dengan menggunakan hak pilih secara cerdas, rasional, dan bertanggung jawab, bukan atas dasar uang atau tekanan</li>
+           <li><strong>Mengawasi jalannya pemerintahan</strong> secara kritis dan konstruktif melalui saluran-saluran yang sah seperti DPR, media massa, dan organisasi masyarakat</li>
+           <li><strong>Menghormati dan menaati hukum</strong> serta peraturan yang berlaku tanpa pandang bulu</li>
+           <li><strong>Menjaga stabilitas nasional</strong> dengan tidak melakukan tindakan yang dapat memecah belah persatuan bangsa</li>
+           <li><strong>Menyampaikan aspirasi</strong> secara damai, teratur, dan melalui mekanisme yang tersedia</li>
+          </ul>
+         </div>
+         <div class="bg-white/5 rounded-lg p-4 mb-4 border-l-4 border-emas">
+          <h4 class="font-bold text-white mb-2">2. Bentuk Partisipasi Warga Negara</h4>
+          <p class="mb-2"><strong class="text-emas">a. Partisipasi Politik:</strong></p>
+          <ul class="list-disc ml-6 space-y-1 mb-3">
+           <li>Menggunakan hak pilih dalam setiap pemilihan umum</li>
+           <li>Menjadi anggota partai politik atau organisasi masyarakat</li>
+           <li>Mengikuti diskusi dan debat publik tentang kebijakan pemerintah</li>
+           <li>Mengajukan petisi atau aspirasi kepada pemerintah dan DPR</li>
+           <li>Mencalonkan diri dalam pemilihan umum</li>
+          </ul>
+          <p class="mb-2"><strong class="text-emas">b. Partisipasi Hukum:</strong></p>
+          <ul class="list-disc ml-6 space-y-1 mb-3">
+           <li>Mematuhi seluruh peraturan perundang-undangan</li>
+           <li>Melaporkan tindak pidana yang diketahui kepada aparat penegak hukum</li>
+           <li>Menjadi saksi dalam proses hukum bila diperlukan</li>
+           <li>Menghormati putusan pengadilan yang berkekuatan hukum tetap</li>
+          </ul>
+          <p class="mb-2"><strong class="text-emas">c. Partisipasi Sosial dan Ekonomi:</strong></p>
+          <ul class="list-disc ml-6 space-y-1">
+           <li>Membayar pajak sesuai ketentuan yang berlaku</li>
+           <li>Berpartisipasi dalam program pembangunan nasional</li>
+           <li>Mengembangkan usaha dan menciptakan lapangan kerja</li>
+           <li>Membantu program pengentasan kemiskinan</li>
+           <li>Mendukung program pendidikan dan kesehatan masyarakat</li>
+          </ul>
+         </div>
+         <div class="bg-white/5 rounded-lg p-4 mb-4 border-l-4 border-merah">
+          <h4 class="font-bold text-white mb-2">3. Sikap yang Harus Dihindari</h4>
+          <ul class="list-disc ml-6 space-y-1">
+           <li><strong>Apatis</strong> — Sikap tidak peduli terhadap kehidupan berbangsa dan bernegara</li>
+           <li><strong>Anarkis</strong> — Melakukan tindakan kekerasan dan merusak untuk menyampaikan aspirasi</li>
+           <li><strong>Koruptif</strong> — Menyalahgunakan kekuasaan atau jabatan untuk kepentingan pribadi</li>
+           <li><strong>Intoleran</strong> — Tidak menghargai perbedaan suku, agama, ras, dan budaya</li>
+           <li><strong>Separatis</strong> — Berusaha memisahkan diri dari NKRI</li>
+           <li><strong>Provokasi SARA</strong> — Menyebarkan kebencian berdasarkan perbedaan identitas</li>
+           <li><strong>Tidak taat hukum</strong> — Melanggar peraturan dan hukum yang berlaku</li>
+          </ul>
+         </div>
+         <div class="bg-gradient-to-r from-merah/10 to-emas/10 rounded-lg p-4 border border-emas/20">
+          <h4 class="font-bold text-emas mb-2">📌 Kesimpulan</h4>
+          <p>Sikap positif warga negara terhadap sistem pemerintahan RI merupakan kunci keberhasilan pembangunan nasional. Setiap warga negara harus menyadari bahwa sistem pemerintahan presidensial yang dianut Indonesia adalah pilihan yang telah ditetapkan dalam UUD 1945 dan merupakan hasil kesepakatan bersama para pendiri bangsa. Dengan sikap yang positif, kritis, dan konstruktif, kita dapat bersama-sama membangun Indonesia yang lebih baik, adil, dan sejahtera berdasarkan Pancasila.</p>
+         </div>
+        </div>
+       </div>
+      </div><!-- Pintasan Navigasi Materi -->
+      <div class="card-materi rounded-xl p-6 mb-8">
+       <h3 class="text-lg font-bold text-emas mb-4 flex items-center gap-2"><i data-lucide="compass" style="width:20px;height:20px;"></i> Pintasan Navigasi Materi</h3>
+       <div class="grid sm:grid-cols-2 gap-3"><button onclick="scrollToMateri('bab1')" class="text-left p-3 rounded-lg bg-white/5 hover:bg-merah/20 border border-emas/10 hover:border-merah/40 transition flex items-center gap-3"> <i data-lucide="shield-alert" style="width:18px;height:18px;color:#C41E3A;"></i> <span class="text-white/80 text-sm">Bab 1 — ATHG terhadap Pancasila &amp; NKRI</span> </button> <button onclick="scrollToMateri('bab2')" class="text-left p-3 rounded-lg bg-white/5 hover:bg-emas/20 border border-emas/10 hover:border-emas/40 transition flex items-center gap-3"> <i data-lucide="users" style="width:18px;height:18px;color:#D4A017;"></i> <span class="text-white/80 text-sm">Bab 2 — Peran Serta Warga Negara</span> </button> <button onclick="scrollToMateri('bab3')" class="text-left p-3 rounded-lg bg-white/5 hover:bg-merah/20 border border-emas/10 hover:border-merah/40 transition flex items-center gap-3"> <i data-lucide="landmark" style="width:18px;height:18px;color:#C41E3A;"></i> <span class="text-white/80 text-sm">Bab 3 — Bentuk Negara &amp; Sistem Pemerintahan</span> </button> <button onclick="scrollToMateri('bab4')" class="text-left p-3 rounded-lg bg-white/5 hover:bg-emas/20 border border-emas/10 hover:border-emas/40 transition flex items-center gap-3"> <i data-lucide="heart-handshake" style="width:18px;height:18px;color:#D4A017;"></i> <span class="text-white/80 text-sm">Bab 4 — Sikap terhadap Sistem Pemerintahan</span> </button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div><!-- ============ VIDEO PAGE ============ -->
+   <div id="page-video" class="page hidden">
+    <div class="materi-detail-bg pt-24 pb-16 px-4" style="min-height:100%;">
+     <div class="max-w-5xl mx-auto">
+      <div class="mb-8"><button onclick="showPage('home')" class="text-emas/70 hover:text-emas text-sm flex items-center gap-1 mb-4 transition"><i data-lucide="arrow-left" style="width:16px;height:16px;"></i> Kembali ke Beranda</button>
+       <h1 class="text-3xl md:text-4xl font-black text-emas mb-2">Galeri Video Pembelajaran</h1>
+       <div class="w-20 h-1 bg-gradient-to-r from-merah to-emas rounded mb-4"></div>
+       <p class="text-white/60 text-sm">Kumpulan video pembelajaran terkait materi PPKn Kelas XI. Klik video untuk menonton.</p>
+      </div><!-- Video Input -->
+      <div class="card-materi rounded-xl p-6 mb-8">
+       <h3 class="text-base font-bold text-emas mb-4 flex items-center gap-2"><i data-lucide="plus-circle" style="width:18px;height:18px;"></i> Tambah Video Baru</h3>
+       <form id="video-form" class="space-y-3" onsubmit="return false;">
+        <div class="grid sm:grid-cols-2 gap-3">
+         <div><label for="video-title" class="text-white/60 text-xs block mb-1">Judul Video</label> <input id="video-title" type="text" placeholder="Contoh: Sejarah Pancasila" class="w-full bg-white/5 border border-emas/20 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-emas/60">
+         </div>
+         <div><label for="video-url" class="text-white/60 text-xs block mb-1">Link YouTube</label> <input id="video-url" type="text" placeholder="https://www.youtube.com/watch?v=..." class="w-full bg-white/5 border border-emas/20 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-emas/60">
+         </div>
+        </div>
+        <div><label for="video-desc" class="text-white/60 text-xs block mb-1">Deskripsi Singkat</label> <input id="video-desc" type="text" placeholder="Penjelasan singkat tentang video..." class="w-full bg-white/5 border border-emas/20 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-emas/60">
+        </div>
+        <div><label for="video-bab" class="text-white/60 text-xs block mb-1">Kategori Bab</label> <select id="video-bab" class="w-full bg-gelap border border-emas/20 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-emas/60"> <option value="Bab 1">Bab 1 — ATHG terhadap Pancasila &amp; NKRI</option> <option value="Bab 2">Bab 2 — Peran Serta Warga Negara</option> <option value="Bab 3">Bab 3 — Bentuk Negara &amp; Sistem Pemerintahan</option> <option value="Bab 4">Bab 4 — Sikap terhadap Sistem Pemerintahan</option> </select>
+        </div><button type="button" onclick="addVideo()" class="btn-primary px-6 py-2 rounded-lg text-white text-sm font-semibold flex items-center gap-2"><i data-lucide="plus" style="width:16px;height:16px;"></i> Tambah Video</button>
+       </form>
+      </div><!-- Video Gallery -->
+      <div id="video-gallery" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"><!-- videos rendered here -->
+      </div>
+      <div id="no-videos" class="text-center text-white/40 py-12"><i data-lucide="video-off" style="width:48px;height:48px;margin:0 auto 12px;display:block;opacity:0.3;"></i>
+       <p>Belum ada video. Tambahkan video pertama Anda di atas!</p>
+      </div>
+     </div>
+    </div>
+   </div><!-- ============ GAME PAGE ============ -->
+   <div id="page-game" class="page hidden">
+    <div class="materi-detail-bg pt-24 pb-16 px-4" style="min-height:100%;">
+     <div class="max-w-5xl mx-auto">
+      <div class="mb-8"><button onclick="showPage('home')" class="text-emas/70 hover:text-emas text-sm flex items-center gap-1 mb-4 transition"><i data-lucide="arrow-left" style="width:16px;height:16px;"></i> Kembali ke Beranda</button>
+       <h1 class="text-3xl md:text-4xl font-black text-emas mb-2">Laman Permainan PPKn</h1>
+       <div class="w-20 h-1 bg-gradient-to-r from-merah to-emas rounded mb-4"></div>
+       <p class="text-white/60 text-sm">Uji pemahamanmu tentang materi PPKn dengan permainan-permainan seru berikut!</p>
+      </div><!-- Game Selection -->
+      <div id="game-select" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+       <div class="card-materi rounded-xl p-6 cursor-pointer text-center" onclick="startGame('quiz')">
+        <div class="w-16 h-16 rounded-full bg-merah/20 flex items-center justify-center mx-auto mb-4 text-3xl">
+         🧠
+        </div>
+        <h3 class="text-lg font-bold text-emas mb-2">Kuis Pilihan Ganda</h3>
+        <p class="text-white/50 text-sm">20 soal tentang materi PPKn Kelas XI. Uji pengetahuanmu!</p>
+       </div>
+       <div class="card-materi rounded-xl p-6 cursor-pointer text-center" onclick="startGame('memory')">
+        <div class="w-16 h-16 rounded-full bg-emas/20 flex items-center justify-center mx-auto mb-4 text-3xl">
+         🎮
+        </div>
+        <h3 class="text-lg font-bold text-emas mb-2">Memory Match</h3>
+        <p class="text-white/50 text-sm">Buka kartu dan temukan pasangan istilah PPKn yang cocok!</p>
+       </div>
+       <div class="card-materi rounded-xl p-6 cursor-pointer text-center" onclick="startGame('match')">
+        <div class="w-16 h-16 rounded-full bg-merah/20 flex items-center justify-center mx-auto mb-4 text-3xl">
+         🔗
+        </div>
+        <h3 class="text-lg font-bold text-emas mb-2">Cocokkan Pasangan</h3>
+        <p class="text-white/50 text-sm">Cocokkan istilah dengan definisi yang tepat!</p>
+       </div>
+      </div><!-- Quiz Game -->
+      <div id="game-quiz" class="hidden">
+       <div class="card-materi rounded-xl p-6">
+        <div class="flex justify-between items-center mb-6">
+         <h3 class="text-xl font-bold text-emas">Kuis Pilihan Ganda</h3><button onclick="backToGameSelect()" class="text-emas/60 hover:text-emas text-sm flex items-center gap-1"><i data-lucide="x" style="width:16px;height:16px;"></i> Tutup</button>
+        </div>
+        <div id="quiz-progress" class="mb-4">
+         <div class="flex justify-between text-xs text-white/50 mb-1">
+          <span id="quiz-counter">Soal 1 / 20</span><span id="quiz-score">Skor: 0</span>
+         </div>
+         <div class="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+          <div id="quiz-bar" class="h-full bg-gradient-to-r from-merah to-emas rounded-full transition-all duration-500" style="width:5%"></div>
+         </div>
+        </div>
+        <div id="quiz-question" class="text-white text-base font-semibold mb-4"></div>
+        <div id="quiz-options" class="space-y-3"></div>
+        <div id="quiz-feedback" class="hidden mt-4 p-3 rounded-lg text-sm"></div><button id="quiz-next" class="hidden mt-4 btn-primary px-6 py-2 rounded-lg text-white text-sm font-semibold" onclick="nextQuizQuestion()">Soal Berikutnya →</button>
+        <div id="quiz-result" class="hidden text-center py-8">
+         <div class="text-5xl mb-4">
+          🏆
+         </div>
+         <h3 class="text-2xl font-bold text-emas mb-2">Kuis Selesai!</h3>
+         <p id="quiz-final-score" class="text-white/70 text-lg mb-4"></p>
+         <div id="quiz-grade" class="text-3xl font-black mb-4"></div><button onclick="startGame('quiz')" class="btn-primary px-6 py-2 rounded-lg text-white text-sm font-semibold">Main Lagi</button>
+        </div>
+       </div>
+      </div><!-- Memory Match Game -->
+      <div id="game-memory" class="hidden">
+       <div class="card-materi rounded-xl p-6">
+        <div class="flex justify-between items-center mb-6">
+         <h3 class="text-xl font-bold text-emas">Memory Match</h3><button onclick="backToGameSelect()" class="text-emas/60 hover:text-emas text-sm flex items-center gap-1"><i data-lucide="x" style="width:16px;height:16px;"></i> Tutup</button>
+        </div>
+        <p class="text-white/60 text-sm mb-4">Buka kartu dan temukan pasangan istilah PPKn. Cari pasangan yang cocok!</p>
+        <div id="memory-score" class="text-emas text-sm mb-4 font-semibold flex justify-between"><span>Pasangan Ditemukan: <span id="memory-found">0</span> / 8</span> <span>Upaya: <span id="memory-attempts">0</span></span>
+        </div>
+        <div id="memory-grid" class="grid grid-cols-4 gap-3 mb-6"></div>
+        <div class="flex gap-2"><button onclick="resetMemory()" class="px-4 py-2 rounded-lg text-emas border border-emas/30 text-sm hover:bg-emas/10 transition">Reset</button>
+        </div>
+        <div id="memory-result" class="hidden text-center py-6 mt-4">
+         <div class="text-4xl mb-3">
+          🏆
+         </div>
+         <h4 class="text-xl font-bold text-emas mb-2">Selesai!</h4>
+         <p id="memory-stats" class="text-white/60 mb-4"></p><button onclick="startGame('memory')" class="btn-primary px-6 py-2 rounded-lg text-white text-sm font-semibold">Main Lagi</button>
+        </div>
+       </div>
+      </div><!-- Match Game -->
+      <div id="game-match" class="hidden">
+       <div class="card-materi rounded-xl p-6">
+        <div class="flex justify-between items-center mb-6">
+         <h3 class="text-xl font-bold text-emas">Cocokkan Pasangan</h3><button onclick="backToGameSelect()" class="text-emas/60 hover:text-emas text-sm flex items-center gap-1"><i data-lucide="x" style="width:16px;height:16px;"></i> Tutup</button>
+        </div>
+        <p class="text-white/60 text-sm mb-4">Klik istilah di kiri, lalu klik definisi yang sesuai di kanan.</p>
+        <div id="match-score" class="text-emas text-sm mb-4">
+         Skor: 0 / 8
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+         <div id="match-left" class="space-y-2"></div>
+         <div id="match-right" class="space-y-2"></div>
+        </div>
+        <div id="match-result" class="hidden text-center py-6 mt-4">
+         <div class="text-4xl mb-3">
+          🎉
+         </div>
+         <h4 class="text-xl font-bold text-emas mb-2">Semua Terjawab!</h4><button onclick="startGame('match')" class="btn-primary px-6 py-2 rounded-lg text-white text-sm font-semibold mt-2">Main Lagi</button>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div><!-- FOOTER -->
+   <footer class="bg-gelap border-t border-emas/10 py-8 px-4 text-center">
+    <div class="text-emas/40 text-xs mb-1">
+     PPKn Kelas XI — SMA Taruna Nala Jawa Timur
+    </div>
+    <div class="text-white/30 text-xs">
+     Pengajar: Dimas Aldi Fahrigi • Tahun Ajaran 2024/2025
+    </div>
+    <div class="text-white/20 text-xs mt-2">
+     🦅 Bhinneka Tunggal Ika 🦅
+    </div>
+   </footer>
+  </div>
+  <script>
+// ===== CONFIG & SDK INIT =====
+const defaultConfig = {
+  site_title: 'PPKn Kelas XI',
+  teacher_name: 'Dimas Aldi Fahrigi',
+  school_name: 'SMA Taruna Nala Jawa Timur',
+  welcome_text: 'Selamat datang di portal pembelajaran PPKn. Mari bersama mempelajari dan mengamalkan nilai-nilai Pancasila untuk Indonesia yang lebih baik.',
+  background_color: '#1A0A0A',
+  surface_color: '#1e1e1e',
+  text_color: '#FFFFFF',
+  primary_action_color: '#C41E3A',
+  secondary_action_color: '#D4A017',
+  font_family: 'Source Sans 3',
+  font_size: 14
+};
+
+function applyConfig(cfg) {
+  const c = {...defaultConfig, ...cfg};
+  const t = (id,txt) => { const e=document.getElementById(id); if(e) e.textContent=txt; };
+  t('nav-title', c.site_title);
+  t('nav-school', c.school_name);
+  t('hero-title', ''); // special
+  const ht = document.getElementById('hero-title');
+  if(ht) ht.innerHTML = c.site_title.replace(/(Kelas\s*\w+)/i, '<span class="text-emas">$1</span>') || `PPKn <span class="text-emas">Kelas XI</span>`;
+  t('hero-welcome', c.welcome_text);
+  t('hero-teacher', c.teacher_name);
+  t('hero-school', c.school_name);
+
+  // Colors
+  document.documentElement.style.setProperty('--bg', c.background_color);
+  document.body.style.backgroundColor = c.background_color;
+  document.querySelectorAll('.card-materi, .video-card, .memory-card').forEach(el => {
+    el.style.background = `linear-gradient(145deg, ${c.surface_color}, ${adjustColor(c.surface_color, -10)})`;
+  });
+
+  // Font
+  const ff = c.font_family + ", 'Source Sans 3', sans-serif";
+  document.body.style.fontFamily = ff;
+  const bs = c.font_size;
+  document.body.style.fontSize = bs + 'px';
+  document.querySelectorAll('h1').forEach(e => e.style.fontSize = (bs*2.5)+'px');
+  document.querySelectorAll('h2').forEach(e => e.style.fontSize = (bs*1.6)+'px');
+  document.querySelectorAll('h3').forEach(e => e.style.fontSize = (bs*1.2)+'px');
+}
+
+function adjustColor(hex, amt) {
+  hex = hex.replace('#','');
+  let r = Math.max(0,Math.min(255,parseInt(hex.substring(0,2),16)+amt));
+  let g = Math.max(0,Math.min(255,parseInt(hex.substring(2,4),16)+amt));
+  let b = Math.max(0,Math.min(255,parseInt(hex.substring(4,6),16)+amt));
+  return '#'+[r,g,b].map(x=>x.toString(16).padStart(2,'0')).join('');
+}
+
+if(window.elementSdk) {
+  window.elementSdk.init({
+    defaultConfig,
+    onConfigChange: async (cfg) => applyConfig(cfg),
+    mapToCapabilities: (cfg) => ({
+      recolorables: [
+        { get:()=>cfg.background_color||defaultConfig.background_color, set:v=>{cfg.background_color=v;window.elementSdk.setConfig({background_color:v})} },
+        { get:()=>cfg.surface_color||defaultConfig.surface_color, set:v=>{cfg.surface_color=v;window.elementSdk.setConfig({surface_color:v})} },
+        { get:()=>cfg.text_color||defaultConfig.text_color, set:v=>{cfg.text_color=v;window.elementSdk.setConfig({text_color:v})} },
+        { get:()=>cfg.primary_action_color||defaultConfig.primary_action_color, set:v=>{cfg.primary_action_color=v;window.elementSdk.setConfig({primary_action_color:v})} },
+        { get:()=>cfg.secondary_action_color||defaultConfig.secondary_action_color, set:v=>{cfg.secondary_action_color=v;window.elementSdk.setConfig({secondary_action_color:v})} },
+      ],
+      borderables: [],
+      fontEditable: { get:()=>cfg.font_family||defaultConfig.font_family, set:v=>{cfg.font_family=v;window.elementSdk.setConfig({font_family:v})} },
+      fontSizeable: { get:()=>cfg.font_size||defaultConfig.font_size, set:v=>{cfg.font_size=v;window.elementSdk.setConfig({font_size:v})} },
+    }),
+    mapToEditPanelValues: (cfg) => new Map([
+      ['site_title', cfg.site_title||defaultConfig.site_title],
+      ['teacher_name', cfg.teacher_name||defaultConfig.teacher_name],
+      ['school_name', cfg.school_name||defaultConfig.school_name],
+      ['welcome_text', cfg.welcome_text||defaultConfig.welcome_text],
+    ])
+  });
+}
+
+// ===== NAVIGATION =====
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
+  document.getElementById('page-'+name).classList.remove('hidden');
+  document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('nav-active'));
+  document.querySelector(`[data-nav="${name}"]`)?.classList.add('nav-active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  lucide.createIcons();
+}
+function scrollToMateri(id) {
+  document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
+}
+function toggleMobileMenu() {
+  document.getElementById('mobile-menu').classList.toggle('hidden');
+}
+
+// ===== VIDEO GALLERY =====
+let videos = [
+  { title:'Pancasila sebagai Ideologi Negara', url:'https://www.youtube.com/watch?v=dQw4w9WgXcQ', desc:'Penjelasan lengkap tentang Pancasila sebagai ideologi terbuka.', bab:'Bab 1' },
+  { title:'Ancaman terhadap NKRI', url:'https://www.youtube.com/watch?v=dQw4w9WgXcQ', desc:'Berbagai bentuk ancaman militer dan non-militer terhadap NKRI.', bab:'Bab 1' },
+  { title:'Sistem Pemerintahan Indonesia', url:'https://www.youtube.com/watch?v=dQw4w9WgXcQ', desc:'Penjelasan sistem presidensial yang dianut Indonesia.', bab:'Bab 3' },
+];
+
+function getYouTubeId(url) {
+  const m = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  return m ? m[1] : null;
+}
+
+function renderVideos() {
+  const g = document.getElementById('video-gallery');
+  const n = document.getElementById('no-videos');
+  if(videos.length===0) { g.innerHTML=''; n.classList.remove('hidden'); return; }
+  n.classList.add('hidden');
+  g.innerHTML = videos.map((v,i) => {
+    const vid = getYouTubeId(v.url);
+    const thumb = vid ? `https://img.youtube.com/vi/${vid}/hqdefault.jpg` : '';
+    return `<div class="video-card rounded-xl overflow-hidden">
+      <div class="relative aspect-video bg-gelap cursor-pointer" onclick="openVideo('${v.url}')">
+        ${thumb ? `<img src="${thumb}" alt="${v.title}" loading="lazy" class="w-full h-full object-cover" onerror="this.style.background='linear-gradient(135deg,#3D0C11,#1A0A0A)';this.alt='Thumbnail tidak tersedia';">` : '<div class="w-full h-full bg-gradient-to-br from-merah/30 to-gelap flex items-center justify-center text-white/30 text-4xl">▶</div>'}
+        <div class="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/10 transition">
+          <div class="w-14 h-14 rounded-full bg-merah/90 flex items-center justify-center text-white text-xl">▶</div>
+        </div>
+      </div>
+      <div class="p-4">
+        <div class="text-emas/60 text-xs mb-1">${v.bab}</div>
+        <h4 class="text-white font-bold text-sm mb-1">${v.title}</h4>
+        <p class="text-white/50 text-xs">${v.desc}</p>
+        <button onclick="removeVideo(${i})" class="text-merah/60 hover:text-merah text-xs mt-2 flex items-center gap-1"><i data-lucide="trash-2" style="width:12px;height:12px;"></i> Hapus</button>
+      </div>
+    </div>`;
+  }).join('');
+  lucide.createIcons();
+}
+
+function openVideo(url) { window.open(url, '_blank', 'noopener,noreferrer'); }
+
+function addVideo() {
+  const t = document.getElementById('video-title').value.trim();
+  const u = document.getElementById('video-url').value.trim();
+  const d = document.getElementById('video-desc').value.trim();
+  const b = document.getElementById('video-bab').value;
+  if(!t||!u) { showToast('Harap isi judul dan link video!','error'); return; }
+  videos.push({title:t, url:u, desc:d||'Tidak ada deskripsi', bab:b});
+  document.getElementById('video-title').value='';
+  document.getElementById('video-url').value='';
+  document.getElementById('video-desc').value='';
+  renderVideos();
+  showToast('Video berhasil ditambahkan! 🎬');
+}
+
+function removeVideo(i) { videos.splice(i,1); renderVideos(); }
+
+// ===== TOAST =====
+function showToast(msg, type='success') {
+  const t = document.createElement('div');
+  t.className = `fixed top-20 right-4 z-[999] px-5 py-3 rounded-lg text-sm font-semibold shadow-xl transition-all duration-300 ${type==='error'?'bg-merah text-white':'bg-emas text-gelap'}`;
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(()=>{t.style.opacity='0';setTimeout(()=>t.remove(),300);},2500);
+}
+
+// ===== QUIZ GAME =====
+const quizData = [
+  {q:'Apa yang dimaksud dengan ancaman terhadap ideologi Pancasila?',o:['Usaha mengubah kebijaksanaan secara konsepsional melalui tindak kriminal dan politis','Usaha menggugah kemampuan bangsa','Usaha dari diri sendiri yang melemahkan','Usaha dari luar yang menghalangi'],a:0},
+  {q:'Manakah yang termasuk ancaman militer terhadap NKRI?',o:['Globalisasi','Agresi militer negara asing','Kemiskinan','Budaya asing'],a:1},
+  {q:'Pasal berapa UUD 1945 yang menyatakan Indonesia adalah Negara Kesatuan berbentuk Republik?',o:['Pasal 1 Ayat 1','Pasal 4 Ayat 1','Pasal 27 Ayat 1','Pasal 33 Ayat 1'],a:0},
+  {q:'Sistem pemerintahan yang dianut Indonesia saat ini adalah...',o:['Parlementer','Presidensial','Semi-presidensial','Monarki konstitusional'],a:1},
+  {q:'Apa perbedaan antara "hambatan" dan "gangguan" dalam konteks ATHG?',o:['Hambatan dari dalam, gangguan dari luar','Hambatan dari luar, gangguan dari dalam','Keduanya dari luar','Keduanya dari dalam'],a:0},
+  {q:'Lembaga negara yang berfungsi sebagai pengawal konstitusi adalah...',o:['Mahkamah Agung','DPR','Mahkamah Konstitusi','BPK'],a:2},
+  {q:'Berikut yang BUKAN merupakan ciri sistem presidensial adalah...',o:['Presiden sebagai kepala negara dan kepala pemerintahan','Menteri bertanggung jawab kepada parlemen','Presiden dipilih langsung oleh rakyat','Masa jabatan presiden pasti'],a:1},
+  {q:'Otonomi daerah di Indonesia diatur dalam undang-undang nomor...',o:['UU No. 23 Tahun 2014','UU No. 32 Tahun 2004','UU No. 5 Tahun 1974','UU No. 22 Tahun 1999'],a:0},
+  {q:'Contoh peran warga negara menjaga keutuhan di lingkungan sekolah adalah...',o:['Membayar pajak','Mengikuti upacara bendera dengan khidmat','Berpartisipasi dalam siskamling','Mencalonkan diri dalam Pemilu'],a:1},
+  {q:'Ancaman di bidang non-militer meliputi bidang berikut, KECUALI...',o:['Ideologi','Ekonomi','Agresi bersenjata','Sosial-budaya'],a:2},
+  {q:'Fungsi DPR dalam sistem pemerintahan Indonesia meliputi...',o:['Legislasi, anggaran, dan pengawasan','Mengubah UUD dan melantik presiden','Memeriksa keuangan negara','Mengadili sengketa pemilu'],a:0},
+  {q:'Sishankamrata adalah singkatan dari...',o:['Sistem Pertahanan dan Keamanan Rakyat Semesta','Sistem Pertahanan Keamanan Negara','Sistem Hankam Rakyat Total','Sistem Pertahanan Kemanan Terpadu'],a:0},
+  {q:'Bentuk pemerintahan monarki konstitusional diterapkan di negara...',o:['Amerika Serikat','Indonesia','Inggris','Perancis'],a:2},
+  {q:'Sikap warga negara yang harus DIHINDARI terhadap sistem pemerintahan adalah...',o:['Partisipatif','Kritis konstruktif','Apatis','Demokratis'],a:2},
+  {q:'KKN (Korupsi, Kolusi, Nepotisme) termasuk dalam kategori...',o:['Ancaman internal terhadap Pancasila','Tantangan eksternal','Gangguan dari luar','Hambatan alam'],a:0},
+  {q:'Bela negara secara non-fisik dapat diwujudkan melalui...',o:['Wajib militer','Belajar dengan sungguh-sungguh','Perang gerilya','Latihan perang'],a:1},
+  {q:'MPR memiliki wewenang untuk...',o:['Membuat undang-undang','Mengubah dan menetapkan UUD','Mengadili perkara','Memeriksa keuangan'],a:1},
+  {q:'Cyber warfare termasuk ancaman di bidang...',o:['Militer','Teknologi dan Informasi','Sosial-budaya','Politik'],a:1},
+  {q:'Dalam negara kesatuan, kedaulatan negara ditangani oleh...',o:['Pemerintah daerah','Pemerintah pusat','Negara bagian','Raja'],a:1},
+  {q:'Gotong royong sebagai wujud menjaga keutuhan di lingkungan masyarakat mencerminkan sila ke...',o:['Sila ke-1','Sila ke-2','Sila ke-3','Sila ke-5'],a:2},
+];
+
+let quizState = { current:0, score:0, answered:false, shuffled:[] };
+
+function startGame(name) {
+  document.getElementById('game-select').classList.add('hidden');
+  document.querySelectorAll('[id^="game-"]').forEach(e => { if(e.id!=='game-select') e.classList.add('hidden'); });
+  document.getElementById('game-'+name).classList.remove('hidden');
+  if(name==='quiz') initQuiz();
+  if(name==='memory') initMemory();
+  if(name==='match') initMatch();
+}
+
+function backToGameSelect() {
+  document.querySelectorAll('[id^="game-"]').forEach(e => e.classList.add('hidden'));
+  document.getElementById('game-select').classList.remove('hidden');
+}
+
+function initQuiz() {
+  quizState = { current:0, score:0, answered:false, shuffled:[...quizData].sort(()=>Math.random()-0.5).slice(0,20) };
+  document.getElementById('quiz-result').classList.add('hidden');
+  document.getElementById('quiz-progress').classList.remove('hidden');
+  renderQuizQuestion();
+}
+
+function renderQuizQuestion() {
+  const s = quizState;
+  if(s.current >= s.shuffled.length) { showQuizResult(); return; }
+  const q = s.shuffled[s.current];
+  s.answered = false;
+  document.getElementById('quiz-counter').textContent = `Soal ${s.current+1} / ${s.shuffled.length}`;
+  document.getElementById('quiz-score').textContent = `Skor: ${s.score}`;
+  document.getElementById('quiz-bar').style.width = ((s.current+1)/s.shuffled.length*100)+'%';
+  document.getElementById('quiz-question').textContent = q.q;
+  document.getElementById('quiz-feedback').classList.add('hidden');
+  document.getElementById('quiz-next').classList.add('hidden');
+  const opts = document.getElementById('quiz-options');
+  opts.innerHTML = q.o.map((o,i) => `<button class="quiz-option w-full text-left p-3 rounded-lg border border-emas/20 bg-white/5 text-white/80 text-sm" onclick="answerQuiz(${i})">${String.fromCharCode(65+i)}. ${o}</button>`).join('');
+}
+
+function answerQuiz(idx) {
+  if(quizState.answered) return;
+  quizState.answered = true;
+  const q = quizState.shuffled[quizState.current];
+  const btns = document.querySelectorAll('.quiz-option');
+  btns.forEach((b,i) => {
+    b.style.pointerEvents='none';
+    if(i===q.a) b.classList.add('correct');
+    if(i===idx && idx!==q.a) b.classList.add('wrong');
+  });
+  const fb = document.getElementById('quiz-feedback');
+  fb.classList.remove('hidden');
+  if(idx===q.a) {
+    quizState.score++;
+    fb.className='mt-4 p-3 rounded-lg text-sm bg-green-900/50 text-green-300 border border-green-500/30';
+    fb.textContent='✅ Benar! Jawaban yang tepat.';
+  } else {
+    fb.className='mt-4 p-3 rounded-lg text-sm bg-red-900/50 text-red-300 border border-red-500/30';
+    fb.textContent=`❌ Salah. Jawaban yang benar: ${String.fromCharCode(65+q.a)}. ${q.o[q.a]}`;
+  }
+  document.getElementById('quiz-score').textContent = `Skor: ${quizState.score}`;
+  document.getElementById('quiz-next').classList.remove('hidden');
+}
+
+function nextQuizQuestion() {
+  quizState.current++;
+  renderQuizQuestion();
+}
+
+function showQuizResult() {
+  document.getElementById('quiz-progress').classList.add('hidden');
+  document.getElementById('quiz-question').textContent='';
+  document.getElementById('quiz-options').innerHTML='';
+  document.getElementById('quiz-feedback').classList.add('hidden');
+  document.getElementById('quiz-next').classList.add('hidden');
+  const r = document.getElementById('quiz-result');
+  r.classList.remove('hidden');
+  const pct = Math.round(quizState.score/quizState.shuffled.length*100);
+  document.getElementById('quiz-final-score').textContent = `Kamu menjawab ${quizState.score} dari ${quizState.shuffled.length} soal dengan benar (${pct}%)`;
+  let grade='';
+  if(pct>=90) grade='<span class="text-green-400">A — Luar Biasa! 🌟</span>';
+  else if(pct>=80) grade='<span class="text-green-300">B — Sangat Baik! 👏</span>';
+  else if(pct>=70) grade='<span class="text-emas">C — Baik! 👍</span>';
+  else if(pct>=60) grade='<span class="text-yellow-400">D — Cukup, Terus Belajar! 💪</span>';
+  else grade='<span class="text-merah">E — Perlu Belajar Lagi! 📚</span>';
+  document.getElementById('quiz-grade').innerHTML = grade;
+}
+
+// ===== MEMORY MATCH GAME =====
+const memoryData = [
+  {term:'Ancaman',def:'Ancaman'},
+  {term:'Tantangan',def:'Tantangan'},
+  {term:'Hambatan',def:'Hambatan'},
+  {term:'Gangguan',def:'Gangguan'},
+  {term:'Pancasila',def:'Pancasila'},
+  {term:'NKRI',def:'NKRI'},
+  {term:'Presiden',def:'Presiden'},
+  {term:'Pemerintah',def:'Pemerintah'},
+];
+
+let memoryState = { cards:[], flipped:[], matched:new Set(), attempts:0, found:0 };
+
+function initMemory() {
+  memoryState = { cards:[], flipped:[], matched:new Set(), attempts:0, found:0 };
+  document.getElementById('memory-result').classList.add('hidden');
+  
+  const pairs = [...memoryData, ...memoryData];
+  memoryState.cards = pairs.sort(()=>Math.random()-0.5);
+  
+  renderMemory();
+}
+
+function renderMemory() {
+  const grid = document.getElementById('memory-grid');
+  grid.innerHTML = memoryState.cards.map((card,idx) => {
+    const isFlipped = memoryState.flipped.includes(idx);
+    const isMatched = memoryState.matched.has(idx);
+    return `<div class="memory-card ${isFlipped?'flipped':''} ${isMatched?'matched':''}" onclick="flipCard(${idx})">
+      ${isFlipped || isMatched ? card.term : '?'}
+    </div>`;
+  }).join('');
+}
+
+function flipCard(idx) {
+  if(memoryState.flipped.includes(idx) || memoryState.matched.has(idx) || memoryState.flipped.length>=2) return;
+  
+  memoryState.flipped.push(idx);
+  renderMemory();
+  
+  if(memoryState.flipped.length===2) {
+    const [a,b] = memoryState.flipped;
+    const match = memoryState.cards[a].term === memoryState.cards[b].term && a!==b;
+    
+    setTimeout(()=>{
+      memoryState.attempts++;
+      if(match) {
+        memoryState.matched.add(a);
+        memoryState.matched.add(b);
+        memoryState.found++;
+      }
+      memoryState.flipped = [];
+      updateMemoryScore();
+      renderMemory();
+      
+      if(memoryState.found===memoryData.length) {
+        document.getElementById('memory-result').classList.remove('hidden');
+        document.getElementById('memory-stats').textContent = `Selesai dalam ${memoryState.attempts} upaya! Luar biasa!`;
+      }
+    },600);
+  }
+}
+
+function updateMemoryScore() {
+  document.getElementById('memory-found').textContent = memoryState.found;
+  document.getElementById('memory-attempts').textContent = memoryState.attempts;
+}
+
+function resetMemory() {
+  initMemory();
+}
+
+// ===== MATCH GAME =====
+const matchData = [
+  {term:'Ancaman',def:'Usaha mengubah kebijaksanaan secara konsepsional'},
+  {term:'Tantangan',def:'Usaha yang bersifat menggugah kemampuan'},
+  {term:'Hambatan',def:'Usaha dari diri sendiri yang melemahkan'},
+  {term:'Gangguan',def:'Usaha dari luar yang menghalangi secara tidak konsepsional'},
+  {term:'Presidensial',def:'Sistem dimana presiden sebagai kepala negara dan pemerintahan'},
+  {term:'Parlementer',def:'Sistem dimana kabinet bertanggung jawab kepada parlemen'},
+  {term:'Negara Kesatuan',def:'Negara dengan satu pemerintahan pusat mengatur seluruh wilayah'},
+  {term:'Otonomi Daerah',def:'Pelimpahan kewenangan pusat kepada daerah'},
+];
+
+let matchState = { selected:null, score:0, matched:new Set() };
+
+function initMatch() {
+  matchState = { selected:null, score:0, matched:new Set() };
+  document.getElementById('match-result').classList.add('hidden');
+  const shuffledDefs = [...matchData].sort(()=>Math.random()-0.5);
+  const left = document.getElementById('match-left');
+  const right = document.getElementById('match-right');
+  left.innerHTML = matchData.map((m,i) => `<button id="ml-${i}" class="w-full text-left p-3 rounded-lg border border-emas/20 bg-white/5 text-white text-sm hover:border-emas/50 transition" onclick="selectMatch('left',${i})">${m.term}</button>`).join('');
+  right.innerHTML = shuffledDefs.map((m,i) => {
+    const origIdx = matchData.findIndex(d=>d.def===m.def);
+    return `<button id="mr-${origIdx}" class="w-full text-left p-3 rounded-lg border border-emas/20 bg-white/5 text-white/70 text-sm hover:border-emas/50 transition" onclick="selectMatch('right',${origIdx})">${m.def}</button>`;
+  }).join('');
+  updateMatchScore();
+}
+
+function selectMatch(side, idx) {
+  if(matchState.matched.has(idx)) return;
+  if(side==='left') {
+    document.querySelectorAll('[id^="ml-"]').forEach(e=>e.classList.remove('ring-2','ring-emas'));
+    document.getElementById('ml-'+idx)?.classList.add('ring-2','ring-emas');
+    matchState.selected = idx;
+  } else if(matchState.selected!==null) {
+    if(idx===matchState.selected) {
+      matchState.matched.add(idx);
+      matchState.score++;
+      const l=document.getElementById('ml-'+idx);
+      const r=document.getElementById('mr-'+idx);
+      if(l){l.classList.remove('ring-2','ring-emas');l.classList.add('correct');l.style.opacity='0.5';l.style.borderColor='#22c55e';l.style.pointerEvents='none';}
+      if(r){r.classList.add('correct');r.style.opacity='0.5';r.style.borderColor='#22c55e';r.style.pointerEvents='none';}
+      matchState.selected=null;
+      updateMatchScore();
+      if(matchState.score===matchData.length) document.getElementById('match-result').classList.remove('hidden');
+    } else {
+      const r=document.getElementById('mr-'+idx);
+      if(r){r.classList.add('wrong');r.style.borderColor='#ef4444';}
+      setTimeout(()=>{if(r){r.classList.remove('wrong');r.style.borderColor='';}},600);
+    }
+  }
+}
+
+function updateMatchScore() {
+  document.getElementById('match-score').textContent = `Skor: ${matchState.score} / ${matchData.length}`;
+}
+
+// ===== INIT =====
+renderVideos();
+showPage('home');
+lucide.createIcons();
+</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e9e109fc3797ae1',t:'MTc3NTc4NTQ1MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
